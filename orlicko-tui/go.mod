@@ -1,4 +1,4 @@
-module orlicko-tui
+module github.com/vaclavskorpil/orlicko/orlicko-tui
 
 go 1.24.0
 

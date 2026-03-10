@@ -1,0 +1,31 @@
+version: 2
+
+project_name: orlicko
+
+builds:
+  - dir: orlicko-tui
+    binary: orlicko
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - format: tar.gz
+
+brews:
+  - repository:
+      owner: vaclavskorpil
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    homepage: "https://github.com/vaclavskorpil/orlicko"
+    description: "Terminal UI player for Radio Orlicko internet radio"
+    license: "MIT"
+    dependencies:
+      - name: mpv
+    install: |
+      bin.install "orlicko"
